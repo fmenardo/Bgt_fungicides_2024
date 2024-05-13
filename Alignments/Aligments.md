@@ -7,7 +7,7 @@ cat ../Dataset/tritici_extended_europe_2022+before2022+2023+ncsu.args ../Dataset
 
 For each target we extracted a vcf file with all positions covering the coding sequence with bcftools
 
-`
+```
 bcftools view  -o sdhB.vcf.gz -O z -a -R ../Fungicides_targets/coord_sdhB -S tritici_extended_europe_2022+before2022+2023+ncsu+Bgs -f GCA_900519115.1_2022_bgt_ref_mating_type_LR026992.1_chr9.fa 2022+before2022+2023+ncsu_covg15_recoded_LR026992.1_chr9.vcf.gz 
 srun bcftools index sdhB.vcf.gz
 
@@ -25,4 +25,5 @@ bcftools index Btub.vcf.gz
 
 bcftools view  -o cytB.vcf.gz -O z -a -R ../Fungicides_targets/coord_cytB -S tritici_extended_europe_2022+before2022+2023+ncsu+Bgs -f GCA_900519115.1_2022_bgt_ref_mating_type_MT880591.1.fa 2022+before2022+2023+ncsu_covg15_recoded_MT880591.1.vcf.gz
 bcftools index cytB.vcf.gz
-`
+```
+
