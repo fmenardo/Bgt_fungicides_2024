@@ -2,4 +2,4 @@
 Here you find the code to reproduce the analyses performed in Title
 
 - Data preparation
-  - [Dataset](Dataset/Dataset.md)
+  - [Dataset and WGS pipeline](Dataset/Dataset.md)
