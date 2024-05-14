@@ -7,7 +7,7 @@ samtools coverage -r LR026991.1_chr8:5728014-5729706 ${filename}
 ```
 The genome-wide covergae was obtained from (LINK). The coverages and the ratio are availbles in `cyp51_cnv.csv`
 
-Moreover we obtained a consensus sequence in which we reported all mutations, also heterozygous ones. Therefore in this alignment a mutation is present even if it is present in only one copy of cyp51. To do this we used as input the vcf produced by the WGS pipeline before the execution of step n. 7 (LINK)
+Additionally we created a consensus sequence in which we reported all mutations, also "heterozygous" ones. Therefore in this alignment a mutation is reported if it is present in at least one copy of cyp51. To do this we used as input the vcf produced by the WGS pipeline before the execution of step n. 7 (LINK)
 
 ```
 
@@ -17,5 +17,5 @@ bcftools index cyp51_het.vcf.gz
 python make_fasta_gene_from_vcf.py -vcf cyp51_het.vcf.gz -o Bgt_Eur+_cyp51_het -rc
 
 ```
-
+The vcf and consensus alignment are available in this folder.
 
