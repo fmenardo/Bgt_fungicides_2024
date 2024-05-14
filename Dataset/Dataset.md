@@ -6,3 +6,5 @@ add links
 We use the bam files and vcf files produced by the study Jigisha et al. 2024 (link).. For details about the WGS pipeline see XXXX
 
 add links
+
+add list with samples and metadata
