@@ -37,4 +37,4 @@ python make_fasta_gene_from_vcf.py -vcf Btub.vcf.gz -o Bgt_Eur+_Btub
 #python make_fasta_gene_from_vcf.py -vcf cytB.vcf.gz -o Bgt_Eur+_cytB -mt
 ```
 
-
+The vcf files and alignments are available in this folder.
