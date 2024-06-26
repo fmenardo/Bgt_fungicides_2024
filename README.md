@@ -8,3 +8,7 @@ Here you find the code to reproduce the analyses performed in Title
   - [Alignments](Alignments/Alignments.md)
   - [cyp51 coverage and alignments](cyp51/cyp51.md)
 - Analysis 
+  - [cytB]
+  - [cyp51 (mutations)]
+  - cyp51 (isoRelate)
+  - cyp51 (copy number variation)
