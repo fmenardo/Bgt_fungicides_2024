@@ -10,5 +10,5 @@ Here you find the code to reproduce the analyses performed in Title
 - Analysis 
   - [cytB]
   - [cyp51 (mutations)]
-  - cyp51 (isoRelate)
-  - cyp51 (copy number variation)
+  - [cyp51 (isoRelate)](cyp51_isoRelate/cyp51_isoRelate.md)
+  - [cyp51 (copy number variation)](cyp51_CNV/cyp51_CNV.md)
