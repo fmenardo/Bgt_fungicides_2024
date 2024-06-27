@@ -5,7 +5,7 @@ We used samtools v1.17, for example, for one isolate:
 ```
 samtools coverage -r LR026991.1_chr8:5728014-5729706 ${filename}
 ```
-The genome-wide covergae was obtained from (LINK). The coverages and the ratio are availbles in `cyp51_cnv.csv`
+The genome-wide coverage was obtained from (LINK). The coverages and the ratio are availbles in `cyp51_cnv.csv`
 
 Additionally we created a consensus sequence in which we reported all mutations, also "heterozygous" ones. Therefore in this alignment a mutation is reported if it is present in at least one copy of cyp51. To do this we used as input the vcf produced by the WGS pipeline before the execution of step n. 7 (LINK)
 
