@@ -7,7 +7,7 @@ Here you find the code to reproduce the analyses performed in Title
   - [Fungicide targets](Fungicide_targets/Fungicide_targets.md)
   - [Alignments](Alignments/Alignments.md)
   - [cyp51 coverage and alignments](cyp51/cyp51.md)
-  - [Data compilation](???)
+  - [Data compilation?](???)
 - Analysis 
   - [cytB]
   - [cyp51 (mutations)]
