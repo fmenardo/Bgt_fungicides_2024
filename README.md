@@ -9,7 +9,6 @@ Here you find the code to reproduce the analyses performed in Title
   - [cyp51 coverage and alignments](cyp51/cyp51.md)
   - [Data compilation?](???)
 - Analysis 
-  - [cytB]
-  - [cyp51 (mutations)]
-  - [cyp51 (isoRelate)](cyp51_isoRelate/cyp51_isoRelate.md)
-  - [cyp51 (copy number variation)](cyp51_CNV/cyp51_CNV.md)
+  - [Barplots]
+  - [isoRelate (cyp51)](isoRelate_cyp51/isoRelate_cyp51.md)
+  - [Tandem repeats coverage (cyp51))](cyp51_TR/cyp51_TR.md)
