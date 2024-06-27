@@ -10,5 +10,4 @@ Here you find the code to reproduce the analyses performed in Title
   - [Data compilation?](???)
 - Analysis 
   - [Barplots]
-  - [isoRelate (cyp51)](isoRelate_cyp51/isoRelate_cyp51.md)
-  - [Tandem repeats coverage (cyp51))](TR_cyp51/TR_cyp51.md)
+  - [isoRelate and coverage analysis of tandem repeats (cyp51)](isoRelate_cyp51/isoRelate_cyp51.md)
