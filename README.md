@@ -12,6 +12,6 @@ This work builds on a previous study based on the same dataset. You can find mor
   - [Alignments](Alignments/Alignments.md)
   - [cyp51 coverage and alignments](cyp51/cyp51.md)
   - [Data compilation?](???)
-- Analysis 
+- Analyses 
   - [Barplots]
   - [isoRelate and coverage analysis of tandem repeats (cyp51)](isoRelate_cyp51/isoRelate_cyp51.md)
