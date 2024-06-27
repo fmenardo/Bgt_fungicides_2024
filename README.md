@@ -1,4 +1,4 @@
-# Bgt_fungicides_2024
+# Population genetics and molecular epidemiology of fungicide resistance in European populations of wheat powdery mildew 
 
 Here you find the code to reproduce the analyses performed in "Minadakis et al. ".
 
