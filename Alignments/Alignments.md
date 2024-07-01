@@ -25,6 +25,13 @@ bcftools index Btub.vcf.gz
 
 bcftools view  -o cytB.vcf.gz -O z -a -R ../Fungicides_targets/coord_cytB -S tritici_extended_europe_2022+before2022+2023+ncsu+Bgs -f GCA_900519115.1_2022_bgt_ref_mating_type_MT880591.1.fa 2022+before2022+2023+ncsu_covg15_recoded_MT880591.1.vcf.gz
 bcftools index cytB.vcf.gz
+
+bcftools view  -o erg2.vcf.gz -O z -a -R ../Fungicides_targets/coord_erg2 -S tritici_extended_europe_2022+before2022+2023+ncsu+Bgs -f ~/projects/project_data_prep/data/GCA_900519115.1_2022_bgt_ref_mating_type_LR026988.1_chr5.fa ~/projects/project_data_prep/data/2022+before2022+2023+ncsu_covg15_recoded_LR026988.1_chr5.vcf.gz
+bcftools index erg2.vcf.gz
+
+bcftools view  -o erg24.vcf.gz -O z -a -R ../Fungicides_targets/coord_erg24 -S tritici_extended_europe_2022+before2022+2023+ncsu+Bgs -f GCA_900519115.1_2022_bgt_ref_mating_type_LR026990.1_chr7.fa 2022+before2022+2023+ncsu_covg15_recoded_LR026990.1_chr7.vcf.gz
+bcftools index erg24.vcf.gz
+
 ```
 We converts each vcf in a multiple sequence alignment fasta file, translate to proteins and convert using biopython:
 
@@ -34,7 +41,10 @@ python make_fasta_gene_from_vcf.py -vcf sdhC.vcf.gz -o Bgt_Eur+_sdhC -rc
 python make_fasta_gene_from_vcf.py -vcf sdhD.vcf.gz -o Bgt_Eur+_sdhD
 python make_fasta_gene_from_vcf.py -vcf cyp51.vcf.gz -o Bgt_Eur+_cyp51 -rc
 python make_fasta_gene_from_vcf.py -vcf Btub.vcf.gz -o Bgt_Eur+_Btub
-#python make_fasta_gene_from_vcf.py -vcf cytB.vcf.gz -o Bgt_Eur+_cytB -mt
+python make_fasta_gene_from_vcf.py -vcf cytB.vcf.gz -o Bgt_Eur+_cytB -mt
+python make_fasta_gene_from_vcf.py -vcf erg2.vcf.gz -o Bgt_Eur+_erg2 -rc
+python make_fasta_gene_from_vcf.py -vcf erg24.vcf.gz -o Bgt_Eur+_erg24 -rc
+
 ```
 
 The vcf files and alignments are available in this folder.
