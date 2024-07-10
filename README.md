@@ -13,6 +13,6 @@ This work builds on a previous study based on the same dataset. You can find mor
   - [cyp51 coverage and alignments](cyp51/cyp51.md)
   - [Data compilation?](???)
 - Analyses 
-  - [Barplots]
-  - [isoRelate and coverage analysis of tandem repeats (cyp51)](isoRelate_cyp51/isoRelate_cyp51.md)
-  - [isoRelate and haplotype network (erg24](erg24/erg24.md))
+  - [basic barplots for all mutations]
+  - [cyp51](isoRelate_cyp51/isoRelate_cyp51.md)
+  - [erg24](erg24/erg24.md))
