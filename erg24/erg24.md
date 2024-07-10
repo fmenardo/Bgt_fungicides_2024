@@ -34,4 +34,4 @@ Rscript run_ibd_step1.R -o BgtE+r_erg24 -p BgtE+r_chr7_erg24_mod.ped -m BgtE+r_c
 ```
 Finally we identified clusters, and plotted the graphs with `plot_cluster_erg24.R`.
 
-The haplotype network was produced with `plot_hap_networks_erg24.R`
+The haplotype network was produced with `plot_hap_networks_erg24.R`, using the [Europe+ dataset](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/main/Datasets/Datasets.md)
