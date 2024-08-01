@@ -1,4 +1,4 @@
-# Cyp51 coverage and alignmnent
+# Copy number variation
 
 We estimated the number of copies of all target genes by calculating the average coverage from start to stop codon and dividing it by the genome-wide coverage.
 
