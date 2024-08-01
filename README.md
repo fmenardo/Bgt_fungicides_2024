@@ -10,7 +10,7 @@ This work builds on a previous study based on the same dataset. You can find mor
   - [Dataset and WGS pipeline](Dataset/Dataset.md)
   - [Fungicide targets](Fungicide_targets/Fungicide_targets.md)
   - [Alignments](Alignments/Alignments.md)
-  - [cyp51 coverage and alignments](cyp51/cyp51.md)
+  - [Copy number variation](cnv/cnv.md)
   - [Data compilation?](???)
 - Analyses 
   - [basic barplots for all mutations]
