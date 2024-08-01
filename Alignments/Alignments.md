@@ -47,4 +47,15 @@ python make_fasta_gene_from_vcf.py -vcf erg24.vcf.gz -o Bgt_Eur+_erg24 -rc
 
 ```
 
+For cyp51 we created an additional consensus sequence in which we reported all mutations, also "heterozygous" ones. Therefore in this alignment a mutation is reported if it is present in at least one copy of cyp51. To do this we used as input the vcf produced by the WGS pipeline before the execution of step n. 7 (LINK)
+
+```
+
+bcftools view  -o cyp51_het.vcf.gz -O z -a -R ../Fungicides_targets/coord_cyp51 -S tritici_extended_europe_2022+before2022+2023+ncsu -f GCA_900519115.1_2022_bgt_ref_mating_type_LR026991.1_chr8.fa 2022+before2022+2023+ncsu_covg15_LR026991.1_chr8.vcf.gz
+bcftools index cyp51_het.vcf.gz
+
+python make_fasta_gene_from_vcf.py -vcf cyp51_het.vcf.gz -o Bgt_Eur+_cyp51_het -rc
+
+```
+
 The vcf files and alignments are available in this folder.
