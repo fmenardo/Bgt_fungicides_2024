@@ -1,4 +1,4 @@
-setwd("~/projects/project_fungicides/analysis/isoRelate_erg24//")
+setwd("~/projects/project_fungicides/analysis/isoRelate_erg24/")
 library(isoRelate,lib = "~/data/R_lib")
 load("BgtE+r_erg24_geno.RData")
 library(ggplot2)
@@ -42,14 +42,14 @@ vertices<-V(g)$name
 # read meta, extract samples and reorder them based on graph vertex order
 meta<-read.csv("~/projects/nikos/fungicide/resistance/2_output/final_metadata_9_7_24.csv")
 meta1<-data.frame(meta$Sample.Name,meta$Country,meta$fs_level_4,meta$Longitude,meta$Latitude,meta$erg24_Y165F,
-                  meta$erg24_F289H,meta$erg24_V295L)
+                  meta$erg24_F289H,meta$erg24_V295L,meta$erg24_D137E, meta$erg24_D291N)
 
-colnames(meta1) <- c("Sample.Name","Country", "Population","Longitude","Latitude","Y165F","F289H","V295L")
+colnames(meta1) <- c("Sample.Name","Country", "Population","Longitude","Latitude","Y165F","F289H","V295L","D137E","D291N")
 
 groups<- merge(my_groups,meta1,by.x="fid",by.y="Sample.Name")
 groups
 groups$merged <- paste(groups$fid, groups$iid, sep = "/")
-colnames(groups) <- c("fid","iid","pid","Country","Population","Longitude","Latitude","Y165F","F289H","V295L","ID")
+colnames(groups) <- c("fid","iid","pid","Country","Population","Longitude","Latitude","Y165F","F289H","V295L","D137E","D291N","ID")
 
 vertices<-V(g)$name
 vertices
@@ -63,6 +63,8 @@ vertex_attr(g, "Population", index = V(g)) <- groups_sorted$Population
 vertex_attr(g, "Y165F", index = V(g)) <- groups_sorted$Y165F
 vertex_attr(g, "F289H", index = V(g)) <- groups_sorted$F289H
 vertex_attr(g, "V295L", index = V(g)) <- groups_sorted$V295L
+vertex_attr(g, "D137E", index = V(g)) <- groups_sorted$D137E
+vertex_attr(g, "D291N", index = V(g)) <- groups_sorted$D291N
 
 
 
@@ -71,6 +73,9 @@ color_mapping <- c("N_EUR" = "#377EB8", "S_EUR1" = "#EA9999","S_EUR2" = "#E41A1C
 color_mapping_Y165F <- c("Y" = "#ff8577", "F" = "#1a82d2")
 color_mapping_F289H <- c("F" = "#ff8577", "H" = "#1a82d2")
 color_mapping_V295L <- c("V" = "#ff8577", "L" = "#1a82d2")
+color_mapping_D137E <- c("D" = "#ff8577", "E" = "#1a82d2")
+color_mapping_D291N <- c("D" = "#ff8577", "N" = "#1a82d2")
+
 
 #layout=layout_nicely(g)
 
@@ -163,9 +168,50 @@ plot.igraph(g,
 legend(x=-1.1,y=1.1, legend = names(color_mapping_F289H), fill = color_mapping_F289H, cex = 0.65, bty="n",
        title = as.expression(bquote(bold("F289H"))),title.adj = 0.5,title.cex=0.7)#,horiz= "True")
 
+dev.off()
+
+pdf("erg24_ibd_clusters_part2.pdf")
 
 
+par(mfrow = c(1, 2))
+par(oma=c(0,0,0,0))
+vertex_colors <- color_mapping_D137E[V(g)$D137E]
 
+par(mar = c(0,0,0,0))
+plot.igraph(g,
+            layout=layout,
+            #     vertex.shape=vertex_shape,
+            vertex.size=3.2,
+            vertex.label.cex=0.5,
+            vertex.label.dist=0.4,
+            vertex.label.color="black",
+            vertex.label=NA,
+            vertex.color=vertex_colors,
+            edge.color="gray85"
+            #     vertex.color = as.factor(vertex_attr(my_i_clusters$i.network, "Population"))
+)
+#legend(x=-0.8,y=-1, legend = names(color_mapping), fill = color_mapping, cex = 0.8, bty="n",horiz= "True")
+legend(x=-1.11,y=1.1, legend = names(color_mapping_D137E), fill = color_mapping_D137E, cex = 0.65, bty="n",
+       title = as.expression(bquote(bold("D137E"))),title.adj = 0.2,title.cex=0.7)#,horiz= "True")
+
+
+vertex_colors <- color_mapping_D291N[V(g)$D291N]
+
+plot.igraph(g,
+            layout=layout,
+            #            vertex.shape=vertex_shape,
+            vertex.size=3.2,
+            vertex.label.cex=0.5,
+            vertex.label.dist=0.4,
+            vertex.label.color="black",
+            vertex.label=NA,
+            vertex.color=vertex_colors,
+            edge.color="gray80"
+            #     vertex.color = as.factor(vertex_attr(my_i_clusters$i.network, "Population"))
+)
+
+legend(x=-1.1,y=1.1, legend = names(color_mapping_D291N), fill = color_mapping_D291N, cex = 0.65, bty="n",
+       title = as.expression(bquote(bold("D291N"))),title.adj = 0.5,title.cex=0.7)#,horiz= "True")
 
 dev.off()
 
@@ -293,3 +339,92 @@ medians <- my_ibd_cl_u %>%
   summarize(median_length = median(length_M * 100))
 
 medians$gen <- (100/medians$median_length)/2
+
+
+##############################
+##### test association muttaion / cluster, cluster with 6 or more (13 clusters)
+
+clustered_samples <- unlist(my_i_clusters$clusters[1:13])
+
+n_ncl <- length(unique_elements) ### these are singleton
+n_cl <- length(clustered_samples)
+
+V295L_tot <- subset(groups_sorted, groups_sorted$V295L =="L")
+
+nV295L_cl<- length(intersect(V295L_tot$ID,clustered_samples))
+nV295L_ncl <- length(intersect(V295L_tot$ID,unique_elements))
+
+V295L_freq<-matrix(c(nV295L_cl, n_cl-nV295L_cl, nV295L_ncl, n_ncl-nV295L_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("V295L", "not_V295L"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(V295L_freq, alternative = "t")
+
+
+Y165F_tot <- subset(groups_sorted, groups_sorted$Y165F =="F")
+
+nY165F_cl<- length(intersect(Y165F_tot$ID,clustered_samples))
+nY165F_ncl <- length(intersect(Y165F_tot$ID,unique_elements))
+
+Y165F_freq<-matrix(c(nY165F_cl, n_cl-nY165F_cl, nY165F_ncl, n_ncl-nY165F_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("Y165F", "not_Y165F"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(Y165F_freq, alternative = "t")
+
+
+
+Y165F_noV295L_tot <- subset(groups_sorted, groups_sorted$Y165F =="F" & groups_sorted$V295L =="V")
+
+nY165F_noV295L_cl<- length(intersect(Y165F_noV295L_tot$ID,clustered_samples))
+nY165F_noV295L_ncl <- length(intersect(Y165F_noV295L_tot$ID,unique_elements))
+
+Y165F_noV295L_freq<-matrix(c(nY165F_noV295L_cl, n_cl-nY165F_noV295L_cl, nY165F_noV295L_ncl, n_ncl-nY165F_noV295L_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("Y165F_noV295L", "not_Y165F_noV295L"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(Y165F_noV295L_freq, alternative = "t")
+
+
+F289H_tot <- subset(groups_sorted, groups_sorted$F289H =="H")
+
+nF289H_cl<- length(intersect(F289H_tot$ID,clustered_samples))
+nF289H_ncl <- length(intersect(F289H_tot$ID,unique_elements))
+
+F289H_freq<-matrix(c(nF289H_cl, n_cl-nF289H_cl, nF289H_ncl, n_ncl-nF289H_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("F289H", "not_F289H"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(F289H_freq, alternative = "t")
+
+D137E_tot <- subset(groups_sorted, groups_sorted$D137E =="E")
+
+nD137E_cl<- length(intersect(D137E_tot$ID,clustered_samples))
+nD137E_ncl <- length(intersect(D137E_tot$ID,unique_elements))
+
+D137E_freq<-matrix(c(nD137E_cl, n_cl-nD137E_cl, nD137E_ncl, n_ncl-nD137E_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("D137E", "not_D137E"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(D137E_freq, alternative = "t")
+
+
+D291N_tot <- subset(groups_sorted, groups_sorted$D291N =="N")
+
+nD291N_cl<- length(intersect(D291N_tot$ID,clustered_samples))
+nD291N_ncl <- length(intersect(D291N_tot$ID,unique_elements))
+
+D291N_freq<-matrix(c(nD291N_cl, n_cl-nD291N_cl, nD291N_ncl, n_ncl-nD291N_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("D291N", "not_D291N"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(D291N_freq, alternative = "t")
+
+
+

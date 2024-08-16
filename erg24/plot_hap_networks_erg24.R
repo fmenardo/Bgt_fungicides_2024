@@ -1,7 +1,6 @@
 setwd("~/projects/project_fungicides/analysis/isoRelate_erg24/")
 library(adegenet)
 library(pegas)
-library(seqinr)
 library(dplyr)
 library(tidyr)
 library(ape)
@@ -48,13 +47,14 @@ df <- meta1  %>%
   filter(Sample.Name %in% names1[,1])
 
 hap_table<-read.csv("~/projects/nikos/fungicide/resistance/2_output/final_metadata_9_7_24.csv")
-hap1 <- data.frame(hap_table$Sample.Name,hap_table$erg24_Y165F,hap_table$erg24_V295L,hap_table$erg24_F289H)
+hap1 <- data.frame(hap_table$Sample.Name,hap_table$erg24_Y165F,hap_table$erg24_V295L,hap_table$erg24_F289H,hap_table$erg24_D137E,hap_table$erg24_D291N)
 
 hap<-merge(df,hap1,by.x = "Sample.Name", by.y = "hap_table.Sample.Name")
-colnames(hap) <- c("Sample.Name","Country", "Population","Longitude","Latitude","Year","Y165F","V295L","F289H")
+colnames(hap) <- c("Sample.Name","Country", "Population","Longitude","Latitude","Year","Y165F","V295L","F289H","D137E","D291N")
 hap <- hap %>%
-  mutate(haplotype = paste(Y165F, V295L, F289H, sep = ""))
+  mutate(haplotype = paste(Y165F, V295L, F289H, D137E, D291N, sep = ""))
 
+write.table(hap,file="table_haplotype_erg24_4_map.csv")
 
 
 
@@ -88,22 +88,47 @@ pdf("erg24_hap_networks.pdf")
 par(mfrow=c(1,2))
 gbg <- c("#984EA3","#377EB8","#EA9999","#E41A1C","#E5B110")
 
-plot(nt,xy=xy,size=sz_prop*10,labels=FALSE,pie = P,scale.ratio=1.5,bg=gbg,threshold = c(0,1))
-
-#FLF FVF YLF YLH YVF YVH
-gbg <- c("darkgreen", "gold","darkorange3", "blue", "darkred", "darkblue" )
+plot(nt,size=sz_prop*10,labels=FALSE,pie = P,scale.ratio=1.5,bg=gbg,threshold = c(0,1))
 
 
-plot(nt,xy=xy,size=sz_prop*10,labels=FALSE,pie = H,scale.ratio=1.5,bg=gbg,threshold = c(0,1))
+
+#"Y165F","V295L","F289H", "D137E", "D291N"
+#FLFDD FVFDD YLFDD YLHDD YVFDD YVFDN YVFED YVHDD
+
+gbg <- c("cadetblue1","indianred4","#1a82d2", "darkblue", "#ff8577", "cadetblue4","firebrick1","blue" )
+
+plot(nt,size=sz_prop*10,labels=FALSE,pie = H,scale.ratio=1.5,bg=gbg,threshold = c(0,1))
 
 dev.off()
-plot(nt)
+#plot(nt)
 
+plot(nt,size=sz_prop*10,pie = H,scale.ratio=1.5,bg=gbg,threshold = c(0,1))
 
-xy<- replot() # save coordinates and change manually, the order is the same of h
+#xy<- replot() # save coordinates and change manually, the order is the same of h
 
-xy$x[2] <- -5
-xy$x[2]
-xy$y[2] <- 2.5
+#xy$x[2] <- -5
+#xy$x[2]
+#xy$y[2] <- 2.5
 #save(xy,file="hap_net_xy.Rdata")
+
+
+pdf("legend_erg24.pdf")
+par(mfrow=c(1,2))
+
+plot.new()
+
+legend("left", legend = c("ME","N_EUR","S_EUR1","S_EUR2","TUR"), fill = c("#984EA3","#377EB8","#EA9999","#E41A1C","#E5B110"), cex = 1,bty="n",ncol=1, title = as.expression(bquote(bold("Population"))), title.adj=0.25)
+
+
+plot.new()
+
+legend("left", legend = c("Y165F + V295L","Y165F","V295L","V295L +F289H","D291N","D137E", "F289H", "wildtype"),
+       fill = c("cadetblue1", "indianred4","#1a82d2", "darkblue", "cadetblue4","firebrick1","blue","#ff8577"),
+       cex = 1,bty="n",ncol=1, title = as.expression(bquote(bold("Haplotype"))), title.adj=0.25)
+
+
+
+dev.off()
+
+
 
