@@ -56,7 +56,8 @@ vertices
 
 groups_sorted <- groups[match(vertices, groups$ID), ]
 
-
+groups_sorted <- groups_sorted %>%
+  mutate(haplotype = paste(Y165F, V295L, F289H, D137E, D291N, sep = ""))
 
 ## attach attributes to graph
 vertex_attr(g, "Population", index = V(g)) <- groups_sorted$Population
@@ -65,6 +66,7 @@ vertex_attr(g, "F289H", index = V(g)) <- groups_sorted$F289H
 vertex_attr(g, "V295L", index = V(g)) <- groups_sorted$V295L
 vertex_attr(g, "D137E", index = V(g)) <- groups_sorted$D137E
 vertex_attr(g, "D291N", index = V(g)) <- groups_sorted$D291N
+vertex_attr(g, "hap", index = V(g)) <- groups_sorted$haplotype
 
 
 
@@ -75,6 +77,10 @@ color_mapping_F289H <- c("F" = "#ff8577", "H" = "#1a82d2")
 color_mapping_V295L <- c("V" = "#ff8577", "L" = "#1a82d2")
 color_mapping_D137E <- c("D" = "#ff8577", "E" = "#1a82d2")
 color_mapping_D291N <- c("D" = "#ff8577", "N" = "#1a82d2")
+color_mapping_hap <- c("FLFDD" = "cadetblue1", "FVFDD" = "indianred4", "YLFDD" = "#1a82d2",
+                       "YLHDD" = "darkblue", "YVFDD" = "#ff8577",
+                       "YVFDN" = "cadetblue4", "YVFED" = "firebrick1", "YVHDD" = "blue")
+
 
 
 #layout=layout_nicely(g)
@@ -215,9 +221,45 @@ legend(x=-1.1,y=1.1, legend = names(color_mapping_D291N), fill = color_mapping_D
 
 dev.off()
 
+#################################################
+####### plot hap
 
+pdf("erg24_ibd_clusters_hap.pdf")
+vertex_colors <- color_mapping[V(g)$Population]
 
+par(mfrow = c(1, 2))
+par(oma=c(0,0,0,0))
 
+par(mar = c(0,0,0,0))
+plot.igraph(g,
+            layout=layout,
+            #     vertex.shape=vertex_shape,
+            vertex.size=3.2,
+            vertex.label.cex=0.5,
+            vertex.label.dist=0.4,
+            vertex.label.color="black",
+            vertex.label=NA,
+            vertex.color=vertex_colors,
+            edge.color="gray85"
+            #     vertex.color = as.factor(vertex_attr(my_i_clusters$i.network, "Population"))
+)
+
+vertex_colors <- color_mapping_hap[V(g)$hap]
+
+plot.igraph(g,
+            layout=layout,
+            #            vertex.shape=vertex_shape,
+            vertex.size=3.2,
+            vertex.label.cex=0.5,
+            vertex.label.dist=0.4,
+            vertex.label.color="black",
+            vertex.label=NA,
+            vertex.color=vertex_colors,
+            edge.color="gray80"
+            #     vertex.color = as.factor(vertex_attr(my_i_clusters$i.network, "Population"))
+)
+
+dev.off()
 
 
 ############### plot only one cluster at the time
@@ -427,4 +469,27 @@ D291N_freq<-matrix(c(nD291N_cl, n_cl-nD291N_cl, nD291N_ncl, n_ncl-nD291N_ncl),
 fisher.test(D291N_freq, alternative = "t")
 
 
+wild_tot <- subset(groups_sorted, groups_sorted$hap =="YVFDD")
 
+nwild_cl<- length(intersect(wild_tot$ID,clustered_samples))
+nwild_ncl <- length(intersect(wild_tot$ID,unique_elements))
+
+wild_freq<-matrix(c(nwild_cl, n_cl-nwild_cl, nwild_ncl, n_ncl-nwild_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("wild", "not_wild"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(wild_freq, alternative = "t")
+
+
+D291N_tot <- subset(groups_sorted, groups_sorted$D291N =="N")
+
+nD291N_cl<- length(intersect(D291N_tot$ID,clustered_samples))
+nD291N_ncl <- length(intersect(D291N_tot$ID,unique_elements))
+
+D291N_freq<-matrix(c(nD291N_cl, n_cl-nD291N_cl, nD291N_ncl, n_ncl-nD291N_ncl),
+                   nrow = 2,
+                   dimnames = list(Var = c("D291N", "not_D291N"),
+                                   period = c("clustered", "not clustered")))
+
+fisher.test(D291N_freq, alternative = "t")
