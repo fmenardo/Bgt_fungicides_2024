@@ -393,6 +393,9 @@ n_cl <- length(clustered_samples)
 
 V295L_tot <- subset(groups_sorted, groups_sorted$V295L =="L")
 
+
+nrow(V295L_tot)
+
 nV295L_cl<- length(intersect(V295L_tot$ID,clustered_samples))
 nV295L_ncl <- length(intersect(V295L_tot$ID,unique_elements))
 
@@ -405,6 +408,8 @@ fisher.test(V295L_freq, alternative = "t")
 
 
 Y165F_tot <- subset(groups_sorted, groups_sorted$Y165F =="F")
+
+nrow(Y165F_tot)
 
 nY165F_cl<- length(intersect(Y165F_tot$ID,clustered_samples))
 nY165F_ncl <- length(intersect(Y165F_tot$ID,unique_elements))
@@ -432,6 +437,7 @@ fisher.test(Y165F_noV295L_freq, alternative = "t")
 
 
 F289H_tot <- subset(groups_sorted, groups_sorted$F289H =="H")
+nrow(F289H_tot)
 
 nF289H_cl<- length(intersect(F289H_tot$ID,clustered_samples))
 nF289H_ncl <- length(intersect(F289H_tot$ID,unique_elements))
@@ -444,6 +450,8 @@ F289H_freq<-matrix(c(nF289H_cl, n_cl-nF289H_cl, nF289H_ncl, n_ncl-nF289H_ncl),
 fisher.test(F289H_freq, alternative = "t")
 
 D137E_tot <- subset(groups_sorted, groups_sorted$D137E =="E")
+nrow(D137E_tot)
+
 
 nD137E_cl<- length(intersect(D137E_tot$ID,clustered_samples))
 nD137E_ncl <- length(intersect(D137E_tot$ID,unique_elements))
@@ -457,6 +465,8 @@ fisher.test(D137E_freq, alternative = "t")
 
 
 D291N_tot <- subset(groups_sorted, groups_sorted$D291N =="N")
+nrow(D291N_tot)
+
 
 nD291N_cl<- length(intersect(D291N_tot$ID,clustered_samples))
 nD291N_ncl <- length(intersect(D291N_tot$ID,unique_elements))
