@@ -14,5 +14,6 @@ This work builds on a previous study based on the same dataset. You can find mor
   - [Data compilation?](???)
 - Analyses 
   - [basic barplots for all mutations]
+  - [cytb](cytb/cytb.md)
   - [cyp51](cyp51/cyp51.md)
   - [erg24](erg24/erg24.md)
