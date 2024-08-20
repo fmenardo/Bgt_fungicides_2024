@@ -1,6 +1,6 @@
 # cytb
 
-We generated a SNP alignment with all mitochondrial SNPs with less than 10% of missing data. The script variable_fasta.py is available [here](https://github.com/fmenardo/bion_tools).
+We generated a SNP alignment for the Europe+ dataset including 5 rye powdery mnildew isolates. We included all mitochondrial SNPs with less than 10% of missing data. The script variable_fasta.py is available [here](https://github.com/fmenardo/bion_tools).
 
 ```
 while read p; do
