@@ -13,3 +13,12 @@ rm *_mito_consensus.fa
 python variable_fasta.py -m 0.9 mito_msa.fa > mito_msa_10%miss_max.fa
 ```
 
+We then generated a maximum likelihood tree with raxml_ng 
+
+```
+raxml-ng --all --msa mito_msa_10%miss_max.fa --model GTR+G+ASC_LEWIS --prefix tree_mito --threads 4 --workers 4 --bs-trees 100
+```
+
+## Software
+bcftools v 1.17
+raxml-ng v 1.2.0
