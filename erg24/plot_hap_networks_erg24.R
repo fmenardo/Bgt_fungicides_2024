@@ -41,8 +41,7 @@ meta<-read.csv("~/projects/vcf_project_tritici/2022+before2022+2023+ncsu_metadat
 meta1<-data.frame(meta$Sample.Name,meta$Country,meta$fs_level_4,meta$Longitude,meta$Latitude,meta$Year.of.Collection)
 colnames(meta1) <- c("Sample.Name","Country", "Population","Longitude","Latitude","Year")
 
-
-
+names1[,1]
 df <- meta1  %>% 
   filter(Sample.Name %in% names1[,1])
 
@@ -54,7 +53,14 @@ colnames(hap) <- c("Sample.Name","Country", "Population","Longitude","Latitude",
 hap <- hap %>%
   mutate(haplotype = paste(Y165F, V295L, F289H, D137E, D291N, sep = ""))
 
-write.table(hap,file="table_haplotype_erg24_4_map.csv")
+
+names_recent<-read.table("~/projects/vcf_project_tritici/tritici_recent_extended_europe_2022+2023+ncsu.args")
+
+write.table(hap,file="table_haplotype_erg24.csv")
+
+hap_recent <- merge(hap,names_recent, by.x="Sample.Name",by.y="V1")
+
+write.table(hap_recent,file="table_haplotype_erg24_4_map.csv")
 
 
 
