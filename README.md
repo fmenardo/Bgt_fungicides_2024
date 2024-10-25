@@ -6,6 +6,8 @@ With this repository we ty to ensure reproducibility of all the analyses perform
 
 This work builds on a previous study based on the same dataset. You can find more information about the data in the repository [Bgt_popgen_Europe_2024](https://github.com/fmenardo/Bgt_popgen_Europe_2024/tree/Bgt_ms).
 
+The reference genome assembly as well as the VCF file used in this study  are available [here](https://doi.org/10.5281/zenodo.13903934).
+
 - Data preparation
   - [Dataset and WGS pipeline](Dataset/Dataset.md)
   - [Fungicide targets](Fungicide_targets/Fungicide_targets.md)
