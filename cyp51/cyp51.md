@@ -1,8 +1,8 @@
 # isoRelate analysis of cyp51 locus
-We found previously that the cyp51 locus had an excess of Identity by descent (IBD) segments between pairs of isolates in many populations [link](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/main/isoRelate/isoRelate.md).
+We found previously that the cyp51 locus had an excess of Identity by descent (IBD) segments between pairs of isolates in many populations [link](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/Bgt_ms/isoRelate/isoRelate.md).
 
-To investigate this further we perfomrmed a new isoRelate analysis on this locus using all the isolates in the [Europe+_recent dataset](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/main/Datasets/Datasets.md).
-The scripts to run isoRelate and  the list of SNPs that can unambiguosly positions onto the genetic map `THUN12x96224_genetic_map_in_cM_+_phy_distance.ambiguous_intervals.list` are available [here](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/main/isoRelate/isoRelate.md)
+To investigate this further we perfomrmed a new isoRelate analysis on this locus using all the isolates in the [Europe+_recent dataset](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/Bgt_ms/Datasets/Datasets.md).
+The scripts to run isoRelate and  the list of SNPs that can unambiguosly positions onto the genetic map `THUN12x96224_genetic_map_in_cM_+_phy_distance.ambiguous_intervals.list` are available [here](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/Bgt_ms/isoRelate/isoRelate.md).
 
 First we used gatk v4.4.0.0 to select SNPs in a region of 3 mb around the gene cyp51
 
