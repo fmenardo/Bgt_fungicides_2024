@@ -12,4 +12,4 @@ We focus on 8 known fungicides targets:
 - erg24 (delta(14)-sterol reductase)
 
 The annotation of all genes was done manually based on homology with the sequences of same genes for other fungal species and RNA-seq alignments.
-The genomic coordinates (add link to ref genome) for these eight genes are available as text files in this folder.
+The genomic coordinates for these eight genes are available as text files in this folder.
