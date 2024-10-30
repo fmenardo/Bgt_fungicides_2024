@@ -4,4 +4,4 @@ For some analysis we used a subset of this dataset including only samples collec
 
 We use the vcf file produced by Jigisha et al. 2024 as a starting point for most of the analyses. The vcf can be downloaded [here](https://doi.org/10.5281/zenodo.13903934). For details about the WGS pipeline see the original repository [link](https://github.com/fmenardo/Bgt_popgen_Europe_2024/blob/Bgt_ms/WGS_pipeline/WGS_pipeline.md).
 
-The list of all samples with metadata can be found here [link](https://github.com/fmenardo/Bgt_fungicides_2024/Dataset/Supplementary_Data_S1.csv).
+The list of all samples with metadata can be found here [link](Dataset/Supplementary_Data_S1.csv).
