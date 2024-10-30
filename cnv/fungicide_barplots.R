@@ -60,11 +60,260 @@ ggarrange(ggarrange(y, p, ncol = 2), c,
           nrow = 2)
 dev.off()
 
+###
+
+# erg24_D137E
+
+# read metadata
+erg24_metadata <- read.csv("2_output/erg24_metadata_new_samples.csv")
+erg24_metadata_all_samples <- read.csv("2_output/erg24_metadata.csv")
+
+# population
+p <- ggplot(erg24_metadata, aes(x=fs_level_4, fill=erg24_D137E)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20)) +
+  theme(legend.text = element_text(size = 20),
+        legend.title=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# country
+c <- ggplot(erg24_metadata, aes(x=Country, fill=erg24_D137E)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=16),
+        axis.text.y=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+countries <- c("United Kingdom", "France", "Switzerland")
+
+erg24_metadata_F_CH_UK <- erg24_metadata_all_samples %>%
+  filter(Country %in% countries)
+
+# year of collection
+y <- ggplot(erg24_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=erg24_D137E)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# erg24_D137E plot
+pdf("2_output/erg24_D137E_barplots_nolegend.pdf", width = 28, height = 12)
+ggarrange(ggarrange(y, p, ncol = 2), c,
+          nrow = 2)
+dev.off()
+
+# erg24_Y165F
+
+# population
+p <- ggplot(erg24_metadata, aes(x=fs_level_4, fill=erg24_Y165F)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20)) +
+  theme(legend.text = element_text(size = 20),
+        legend.title=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# country
+c <- ggplot(erg24_metadata, aes(x=Country, fill=erg24_Y165F)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=16),
+        axis.text.y=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+countries <- c("United Kingdom", "France", "Switzerland")
+
+erg24_metadata_F_CH_UK <- erg24_metadata_all_samples %>%
+  filter(Country %in% countries)
+
+# year of collection
+y <- ggplot(erg24_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=erg24_Y165F)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# erg24_Y165F plot
+pdf("2_output/erg24_Y165F_barplots_nolegend.pdf", width = 28, height = 12)
+ggarrange(ggarrange(y, p, ncol = 2), c,
+          nrow = 2)
+dev.off()
+
+# erg24_F289H
+
+# population
+p <- ggplot(erg24_metadata, aes(x=fs_level_4, fill=erg24_F289H)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20)) +
+  theme(legend.text = element_text(size = 20),
+        legend.title=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# country
+c <- ggplot(erg24_metadata, aes(x=Country, fill=erg24_F289H)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=16),
+        axis.text.y=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+countries <- c("United Kingdom", "France", "Switzerland")
+
+erg24_metadata_F_CH_UK <- erg24_metadata_all_samples %>%
+  filter(Country %in% countries)
+
+# year of collection
+y <- ggplot(erg24_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=erg24_F289H)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# erg24_F289H plot
+pdf("2_output/erg24_F289H_barplots_nolegend.pdf", width = 28, height = 12)
+ggarrange(ggarrange(y, p, ncol = 2), c,
+          nrow = 2)
+dev.off()
+
+# erg24_D291N
+
+# population
+p <- ggplot(erg24_metadata, aes(x=fs_level_4, fill=erg24_D291N)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20)) +
+  theme(legend.text = element_text(size = 20),
+        legend.title=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# country
+c <- ggplot(erg24_metadata, aes(x=Country, fill=erg24_D291N)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=16),
+        axis.text.y=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+countries <- c("United Kingdom", "France", "Switzerland")
+
+erg24_metadata_F_CH_UK <- erg24_metadata_all_samples %>%
+  filter(Country %in% countries)
+
+# year of collection
+y <- ggplot(erg24_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=erg24_D291N)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# erg24_D291N plot
+pdf("2_output/erg24_D291N_barplots_nolegend.pdf", width = 28, height = 12)
+ggarrange(ggarrange(y, p, ncol = 2), c,
+          nrow = 2)
+dev.off()
+
+# erg24_V295L
+
+# population
+p <- ggplot(erg24_metadata, aes(x=fs_level_4, fill=erg24_V295L)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577", "black")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20)) +
+  theme(legend.text = element_text(size = 20),
+        legend.title=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# country
+c <- ggplot(erg24_metadata, aes(x=Country, fill=erg24_V295L)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577", "black")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=16),
+        axis.text.y=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+countries <- c("United Kingdom", "France", "Switzerland")
+
+erg24_metadata_F_CH_UK <- erg24_metadata_all_samples %>%
+  filter(Country %in% countries)
+
+# year of collection
+y <- ggplot(erg24_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=erg24_V295L)) +
+  geom_bar() +
+  scale_x_discrete("") +
+  scale_y_continuous("Accession count") +
+  scale_fill_manual(values = c("#1a82d2", "#ff8577", "black")) +
+  theme_classic() +
+  theme(axis.text=element_text(size=20),
+        axis.title.y=element_text(size=20)) +
+  theme(legend.position = "none")
+
+# erg24_V295L plot
+pdf("2_output/erg24_V295L_barplots_nolegend.pdf", width = 28, height = 12)
+ggarrange(ggarrange(y, p, ncol = 2), c,
+          nrow = 2)
+dev.off()
+
+###
+
 # cyp51
 
 # read metadata
-cyp51_metadata <- read.csv("2_output/cyp51_metadata_new_samples.csv")
-cyp51_metadata_all_samples <- read.csv("2_output/cyp51_metadata.csv")
+cyp51_metadata <- read.csv("2_output/cyp51_metadata_new_samples_new_ratio.csv")
+cyp51_metadata_all_samples <- read.csv("2_output/cyp51_metadata_new_ratio.csv")
+cyp51_metadata_all_samples <- cyp51_metadata_all_samples %>% filter(Sample.Name!="GBR_WC1110")
 cyp51_metadata_F_CH_UK <- cyp51_metadata_all_samples %>%
   filter(Country %in% countries)
 
@@ -114,7 +363,7 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_S79T)) +
   theme(legend.position = "none")
 
 # S79T plot
-pdf("2_output/cyp51_S79T_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_S79T_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -165,7 +414,7 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_Y136F)) +
   theme(legend.position = "none")
 
 # Y136F plot
-pdf("2_output/cyp51_Y136F_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_Y136F_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -216,7 +465,7 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_K175N)) +
   theme(legend.position = "none")
 
 # K175N plot
-pdf("2_output/cyp51_K175N_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_K175N_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -267,58 +516,58 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_S509T)) +
   theme(legend.position = "none")
 
 # S509T plot
-pdf("2_output/cyp51_S509T_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_S509T_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
 
-# K3I population
-p <- ggplot(cyp51_metadata, aes(x=fs_level_4, fill=cyp51_K3I)) +
-  geom_bar() +
+# I3K population
+p <- ggplot(cyp51_metadata, aes(x=fs_level_4, fill=cyp51_I3K)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
   scale_x_discrete("") +
   scale_y_continuous("") +
-  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
   theme_classic() +
   theme(axis.text=element_text(size=20)) +
   theme(legend.text = element_text(size = 20),
         legend.title=element_text(size=20)) +
   theme(legend.position = "none")
 
-# K3I country
-c <- ggplot(cyp51_metadata, aes(x=Country, fill=cyp51_K3I)) +
-  geom_bar() +
+# I3K country
+c <- ggplot(cyp51_metadata, aes(x=Country, fill=cyp51_I3K)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
   scale_x_discrete("") +
   scale_y_continuous("Accession count") +
-  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
   theme_classic() +
   theme(axis.text=element_text(size=16),
         axis.text.y=element_text(size=20),
         axis.title.y=element_text(size=20)) +
   theme(legend.position = "none")
 
-# K3I year of collection
-y <- ggplot(cyp51_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=cyp51_K3I)) +
-  geom_bar() +
+# I3K year of collection
+y <- ggplot(cyp51_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=cyp51_I3K)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
   scale_x_discrete("") +
   scale_y_continuous("Accession count") +
-  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
   theme_classic() +
   theme(axis.text=element_text(size=20),
         axis.title.y=element_text(size=20)) +
   theme(legend.position = "none")
 
-cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_K3I)) +
-  geom_bar() +
+cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_I3K)) +
+  geom_bar(position = position_stack(reverse = TRUE)) +
   scale_x_discrete("Copy number") +
   scale_y_continuous("") +
-  scale_fill_manual(values = c("#1a82d2", "#ff8577")) +
+  scale_fill_manual(values = c("#ff8577", "#1a82d2")) +
   theme_classic() +
   theme(axis.text=element_text(size=20),
         axis.title.x=element_text(size=20)) +
   theme(legend.position = "none")
 
 # K3I plot
-pdf("2_output/cyp51_K3I_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_I3K_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -369,7 +618,7 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_L236F)) +
   theme(legend.position = "none")
 
 # L236F plot
-pdf("2_output/cyp51_L236F_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_L236F_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -420,7 +669,7 @@ cn <- ggplot(cyp51_metadata, aes(x=as.factor(cn), fill=cyp51_T271S)) +
   theme(legend.position = "none")
 
 # T271S plot
-pdf("2_output/cyp51_T271S_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_T271S_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, cn, p, ncol = 3), c,
           nrow = 2)
 dev.off()
@@ -460,14 +709,14 @@ y <- ggplot(cyp51_metadata_F_CH_UK, aes(x=Year.of.Collection.Group, fill=as.fact
   geom_bar(position = position_stack(reverse = TRUE)) +
   scale_x_discrete("") +
   scale_y_continuous("Accession count") +
-  scale_fill_manual(values = c("#FDE725FF", "#8FD744FF", "#35B779FF", "#21908CFF", "#31688EFF", "#443A83FF", "#440154FF")) +
+  scale_fill_manual(values = c("#FDE725FF", "#8FD744FF", "#35B779FF", "#21908CFF", "#31688EFF", "#443A83FF")) +
   theme_classic() +
   theme(axis.text=element_text(size=20),
         axis.title.y=element_text(size=20)) +
   theme(legend.position = "none")
 
 # plot
-pdf("2_output/cyp51_CN_barplots.pdf", width = 28, height = 12)
+pdf("2_output/cyp51_CN_barplots_22_8_2024.pdf", width = 28, height = 12)
 ggarrange(ggarrange(y, p, ncol = 2), c,
           nrow = 2)
 dev.off()
