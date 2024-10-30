@@ -4,7 +4,7 @@ setwd("~/projects/nikos/fungicide/resistance/2_output/")
 library(tidyverse)
 
 # dataset prep
-original_tbl <- read.csv("final_metadata_22_10_24.csv")
+original_tbl <- read.csv("Supplementary_Data_S1.csv")
 head(original_tbl)
 countries <- c("United Kingdom", "France", "Switzerland")
 new_tbl <- original_tbl %>%
