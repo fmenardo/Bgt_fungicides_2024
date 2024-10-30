@@ -1,4 +1,4 @@
-# discriptive stats haplotypes cyp51
+# descriptive stats haplotypes cyp51
 
 library(dplyr)
 setwd("~/projects/nikos/fungicide/resistance/2_output/")
