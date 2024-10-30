@@ -15,6 +15,6 @@ The reference genome assembly used in this study is available [here](https://doi
   - [Copy number variation](cnv/cnv.md)
 
 - Analyses 
-  - [PLots and statistics](Barplots_and_statistics/Plots_and_statistics.md)
+  - [Plots and statistics](Barplots_and_statistics/Plots_and_statistics.md)
   - [cyp51](cyp51/cyp51.md)
   - [erg24](erg24/erg24.md)
