@@ -4,7 +4,7 @@ We focus on 8 known fungicides targets:
 
 - sdhA (Succinate dehydrogenase sub. A)
 - sdhB (Succinate dehydrogenase sub. B)
-- sdcC (Succinate dehydrogenase sub. C)
+- sdhC (Succinate dehydrogenase sub. C)
 - cyp51 (Sterol 14-demethylase)
 - cytB (Cytochrome b)
 - Btub (Beta tubulin)
