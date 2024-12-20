@@ -1,6 +1,6 @@
 # Genomic surveillance and molecular evolution of fungicide resistance in European populations of wheat powdery mildew 
 
-Here you find the code to reproduce the analyses performed in **Genomic surveillance and molecular evolution of fungicide resistance in European populations of wheat powdery mildew** (Minadakis et al. 2024, [https://doi.org/10.1101/2024.10.30.621051](https://doi.org/10.1101/2024.10.30.621051).
+Here you find the code to reproduce the analyses performed in **Genomic surveillance and molecular evolution of fungicide resistance in European populations of wheat powdery mildew** (Minadakis et al. 2024, [https://doi.org/10.1101/2024.10.30.621051](https://doi.org/10.1101/2024.10.30.621051)).
 
 With this repository we ty to ensure reproducibility of all the analyses performed for this study. While we strived to document our code and facilitate the reproduction of our analyses, this is not a ready to run repository. At the very least you will need to install the correct software and adjust the paths to be able to run this code.
 
