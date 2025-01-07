@@ -31,6 +31,6 @@ for i in *.bam; do echo $i >> cov_sdhC_raw; samtools coverage -r LR026986.1_chr3
 rm cov_sdhD_raw
 for i in *.bam; do echo $i >> cov_sdhD_raw; samtools coverage -r LR026985.1_chr2:13068412-13069018 $i | cut -f 7 >> cov_sdhD_raw; done;
 ```
-The genome-wide coverage was obtained from (LINK). 
+The genome-wide coverage was obtained from Jigisha et al. 2024 (Supporting Data, S1 Data)([link](https://www.biorxiv.org/content/10.1101/2024.10.24.619980v1.supplementary-material)). 
 
 We compiled all coverages and ratios with the R script `coverage_fungicides_targets.R`. The coverages and the ratios are available in `fungicides_coverage_table.csv`
