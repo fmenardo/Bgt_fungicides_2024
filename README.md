@@ -18,3 +18,4 @@ The reference genome assembly used in this study is available [here](https://doi
   - [Plots and statistics](Barplots_and_statistics/Plots_and_statistics.md)
   - [cyp51](cyp51/cyp51.md)
   - [erg24](erg24/erg24.md)
+  - [Mitochondrial genome](Mitochondrion/Mitochondrion.md)
