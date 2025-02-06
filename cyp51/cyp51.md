@@ -33,4 +33,4 @@ We then inferred IBD segments with isoRelate
 ```
 Rscript run_ibd_step1.R -o BgtE+r_cyp51 -p BgtE+r_chr8_cyp51_mod.ped -m BgtE+r_chr8_cyp51_mod_cM.map -c 5 -C 2
 ```
-Finally we identified clusters, and plotted the graphs with `plot_clusters.R`, while the plot of the coverage of the tandem repeat was produced with `plot_coverage_dup.R`
+Finally we identified clusters, and plotted the graphs with `plot_cluster_cyp51.R`, while the plot of the coverage of the tandem repeat was produced with `plot_coverage_dup.R`
