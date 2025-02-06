@@ -15,7 +15,6 @@ library(dplyr)
 #tree_boots
 
 
-setwd("~/projects/project_fungicides_revisions/mt_tree/")
 
 tree <- read.tree("Europe_recent_Bgs.raxml.support")
 
@@ -94,7 +93,7 @@ head(meta1)
 meta1[1] <- list(NULL)
 
 gheatmap(p,meta1,width=0.2,colnames=FALSE) +  
-  scale_fill_manual(breaks=c("G", "A"), values=c("#ff8577","#1a82d2"), name=NULL,  legend_title = "cytb G143A",)+
+  scale_fill_manual(breaks=c("G", "A"), values=c("#ff8577","#1a82d2"), name=NULL)+
   theme(legend.key.size = unit(0.2, 'cm'), #change legend key size
         legend.key.height = unit(0.2, 'cm'), #change legend key height
         legend.key.width = unit(0.2, 'cm'), #change legend key width
