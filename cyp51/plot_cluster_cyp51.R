@@ -1,11 +1,10 @@
-setwd("~/projects/project_fungicides/analysis/cyp51/isorelate/")
-library(isoRelate,lib = "~/data/R_lib")
+library(isoRelate)
 load("BgtE+r_cyp51_geno.RData")
-library(ggplot2, lib.loc="/home/fmenar/R/x86_64-pc-linux-gnu-library/4.2")
-library(maps, lib.loc="/home/fmenar/R/x86_64-pc-linux-gnu-library/4.2")
-library(dplyr, lib.loc="/home/fmenar/R/x86_64-pc-linux-gnu-library/4.2")
-library(igraph, lib.loc="/home/fmenar/R/x86_64-pc-linux-gnu-library/4.2")
-library(viridis, lib.loc="/home/fmenar/R/x86_64-pc-linux-gnu-library/4.2")
+library(ggplot2)
+library(maps)
+library(dplyr)
+library(igraph)
+library(viridis)
 
 
 ## make clusters with isoRelate
@@ -40,8 +39,7 @@ vertices<-V(g)$name
 
 
 # read meta, extract samples and reorder them based on graph vertex order
-meta<-read.csv("~/projects/nikos/fungicide/resistance/2_output/final_metadata_20_8_24.csv")
-meta<-read.csv("~/projects/project_fungicides/analysis/cyp51/isorelate/Minadakis_et_al_2024_Supplementary_Data_S1_rev.csv")
+meta<-read.csv("Minadakis_et_al_2024_Supplementary_Data_S1_rev.csv")
 
 meta1<-data.frame(meta$Sample_ID,meta$Country,meta$fs_level_4,meta$Longitude,meta$Latitude,meta$cyp51_Y136F,meta$cyp51_cn_interpretation,meta$cyp51_S509T,meta$cyp51_S79T,meta$cyp51_K175N,meta$cyp51_Y136F_het,meta$cyp51_S509T_het,meta$cyp51_S79T_het,meta$cyp51_K175N_het)
 
@@ -76,16 +74,6 @@ color_mapping_Y136F <- c("Y" = "#ff8577", "F" = "#1a82d2", "X" = "#9F79EE")
 color_mapping_S509T <- c("S" = "#ff8577", "T" = "#1a82d2", "X" = "#9F79EE")
 color_mapping_S79T <- c("S" = "#ff8577", "T" = "#1a82d2", "X" = "#9F79EE")
 color_mapping_K175N <- c("K" = "#ff8577", "N" = "#1a82d2", "X" = "#9F79EE")
-#color_mapping_cyp51_hap <- c("a" = "#FCFDBFFF", "b" = "#FEBA80FF", "d" = "#F8765CFF", "e" = "#D3436EFF", "n" = "#982D80FF", "o" = "#5F187FFF",
-#                             "p" = "#231151FF")
-
-#color_mapping_cyp51_hap <- c("a" = "black", "b" = "#443A83FF", "d" = "#31688EFF", "e" = "#21908CFF", "n" = "#35B779FF", "o" = "#8FD744FF",
-#                             "p" = "#FDE725FF")
-#color_mapping_cyp51_hap <- c("a" = "#76EEC6", "b" = "#556B2F", "d" = "#8B4500", "e" = "#EE9A49", "n" = "#EE3A8C", "o" = "#008B8B",
-#                             "p" = "#F5DEB3")
-
-
-
 
 
 #############   CUSTOMIZE LAYOUT 
